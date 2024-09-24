@@ -1,0 +1,132 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "FrontLeft",
+					"pivot": [2.5, 2.5, -0.5],
+					"cubes": [
+						{"origin": [1.5, 0, -1.5], "size": [2, 3, 2], "uv": [24, 20]}
+					]
+				},
+				{
+					"name": "FrontRight",
+					"pivot": [-2.5, 2.5, -0.5],
+					"cubes": [
+						{"origin": [-3.5, 0, -1.5], "size": [2, 3, 2], "uv": [0, 20]}
+					]
+				},
+				{
+					"name": "BackLeft",
+					"pivot": [2.5, 2.5, 4.5],
+					"cubes": [
+						{"origin": [1.5, 0, 3.5], "size": [2, 3, 2], "uv": [0, 5]}
+					]
+				},
+				{
+					"name": "BackRight",
+					"pivot": [-2.5, 2.5, 4.5],
+					"cubes": [
+						{"origin": [-3.5, 0, 3.5], "size": [2, 3, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Body",
+					"pivot": [0, 0, 2],
+					"cubes": [
+						{"origin": [-4, 2, -2], "size": [8, 8, 8], "uv": [0, 20]}
+					]
+				},
+				{
+					"name": "moss",
+					"parent": "Body",
+					"pivot": [0, 6.875, 2],
+					"cubes": [
+						{"origin": [-5, 1.75, -3], "size": [10, 10.25, 10], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Head",
+					"pivot": [0, 5.5, -2.75],
+					"cubes": [
+						{"origin": [-3, 3, -6], "size": [6, 5, 4.5], "uv": [30, 0]},
+						{"origin": [-0.75, 4, -6.5], "size": [1.5, 1.5, 0.5], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "hornR",
+					"parent": "Head",
+					"pivot": [-2, 8, -4],
+					"cubes": [
+						{"origin": [-2, 8, -5], "size": [1, 1, 1], "uv": [32, 22]},
+						{"origin": [-1.5, 10, -5], "size": [1, 2, 1], "uv": [4, 25]},
+						{"origin": [-2.5, 11, -5], "size": [1, 1, 1], "uv": [31, 24]},
+						{"origin": [-2.5, 9, -5], "size": [2, 1, 1], "uv": [24, 25]}
+					]
+				},
+				{
+					"name": "hornR2",
+					"parent": "Head",
+					"pivot": [1, 8, -4],
+					"cubes": [
+						{"origin": [1, 8, -5], "size": [1, 1, 1], "uv": [30, 20]},
+						{"origin": [0.5, 9, -5], "size": [1, 3, 1], "uv": [30, 0]},
+						{"origin": [1.5, 9.5, -5], "size": [1, 1, 1], "uv": [29, 26]},
+						{"origin": [1.5, 11, -5], "size": [1, 1, 1], "uv": [6, 0]}
+					]
+				},
+				{
+					"name": "earR",
+					"parent": "Head",
+					"pivot": [0, 0, 1],
+					"cubes": [
+						{
+							"origin": [-3.5, 4.5, -5],
+							"size": [0.5, 2.5, 2],
+							"pivot": [-3, 6.25, -4],
+							"rotation": [0, 0, 20],
+							"uv": {
+								"north": {"uv": [2, 25], "uv_size": [0, 2]},
+								"east": {"uv": [0, 25], "uv_size": [2, 2]},
+								"south": {"uv": [4, 25], "uv_size": [-0.5, 2]},
+								"west": {"uv": [2, 25], "uv_size": [2, 2]},
+								"up": {"uv": [2, 25], "uv_size": [2, 0.5]},
+								"down": {"uv": [4, 27], "uv_size": [-2, -0.5]}
+							}
+						}
+					]
+				},
+				{
+					"name": "earL",
+					"parent": "Head",
+					"pivot": [0, 0, 1],
+					"cubes": [
+						{
+							"origin": [3, 4.5, -5],
+							"size": [0.5, 2.5, 2],
+							"pivot": [3, 6.25, -4],
+							"rotation": [0, 0, -20],
+							"uv": {
+								"north": {"uv": [8, 5], "uv_size": [0.5, 2]},
+								"east": {"uv": [6, 5], "uv_size": [2, 2]},
+								"south": {"uv": [9.5, 5], "uv_size": [0.5, 2]},
+								"west": {"uv": [8, 5], "uv_size": [2, 2]},
+								"up": {"uv": [10, 5], "uv_size": [-2, 0.5]},
+								"down": {"uv": [10, 7], "uv_size": [-2, -0.5]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

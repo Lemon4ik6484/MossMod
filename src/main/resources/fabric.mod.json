@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "moss",
+	"version": "${version}",
+	"name": "moss",
+	"description": "desc",
+	"authors": [
+		"Lemonnik6484"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/mosscraft",
+		"sources": "https://github.com/Lemon4ik6484/Moss",
+		"issues": "https://github.com/Lemon4ik6484/Moss/issues"
+	},
+	"license": "AGPL-3.0",
+	"icon": "/assets/moss/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.lemonnik.moss.Moomoss"
+		],
+		"fabric-datagen": [
+			"dev.lemonnik.moss.MoomossDataGenerator"
+		],
+		"client": [
+			"dev.lemonnik.moss.MoomossClient"
+		]
+	},
+	"mixins": [
+		"moss.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": ">=1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
