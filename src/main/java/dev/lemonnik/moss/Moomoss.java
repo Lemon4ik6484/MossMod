@@ -3,6 +3,7 @@ package dev.lemonnik.moss;
 import dev.lemonnik.moss.entity.ModEntities;
 import dev.lemonnik.moss.entity.custom.MoomossEntity;
 import dev.lemonnik.moss.item.ModItems;
+import dev.lemonnik.moss.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -27,5 +28,6 @@ public class Moomoss implements ModInitializer {
 
 		ModItems.registerModItems();
 		FabricDefaultAttributeRegistry.register(ModEntities.MOOMOSS, MoomossEntity.setAttributes());
+		ModWorldGeneration.generateModWorldGen();
 	}
 }
