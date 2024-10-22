@@ -2,7 +2,10 @@ package dev.lemonnik.moss.item;
 
 import dev.lemonnik.moss.Moomoss;
 import dev.lemonnik.moss.entity.ModEntities;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+
+//? if <1.21
+/*import net.fabricmc.fabric.api.item.v1.FabricItemSettings;*/
+
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -16,10 +19,16 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item MOOMOSS_SPAWN_EGG = registerItem("moomoss_spawn_egg",
             new SpawnEggItem(ModEntities.MOOMOSS, 0x70922D, 0x50692C,
-                    new FabricItemSettings()));
+                    //? if <1.20.5 {
+                    /*new FabricItemSettings()));
+                    *///?} else
+                    new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(Moomoss.MOD_ID, name), item);
+        //? if <1.21 {
+        /*return Registry.register(Registries.ITEM, new Identifier(Moomoss.MOD_ID, name), item);*/
+        //?} else
+        return Registry.register(Registries.ITEM, Identifier.of(Moomoss.MOD_ID, name), item);
     }
 
     public static void addItemsToItemGroup() {

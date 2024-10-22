@@ -21,6 +21,9 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.MOOMOSS_SPAWN_EGG,
-                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
+                //? if <1.21 {
+                /*new Identifier(Identifier.DEFAULT_NAMESPACE, "item/template_spawn_egg")), Optional.empty();*/
+                //?} else
+                new Model(Optional.of(Identifier.of(Identifier.DEFAULT_NAMESPACE, "item/template_spawn_egg")), Optional.empty()));
     }
 }

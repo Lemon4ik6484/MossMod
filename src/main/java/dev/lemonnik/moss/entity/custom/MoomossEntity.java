@@ -34,9 +34,16 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+
+//? if <1.21 {
+/*import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.core.object.PlayState;*/
+//?} else
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.animation.PlayState;
+
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Random;
@@ -53,8 +60,8 @@ public class MoomossEntity extends AnimalEntity implements GeoEntity {
 
     private int timeSinceLastGrowth = 0;
     private int growthInterval;
-    private static final int MIN_GROWTH_INTERVAL = 300; // 3min 3600
-    private static final int MAX_GROWTH_INTERVAL = 300; // 5min 6000
+    private static final int MIN_GROWTH_INTERVAL = 3600; // 3min 3600
+    private static final int MAX_GROWTH_INTERVAL = 6000; // 5min 6000
     private final Random random = new Random();
 
     public MoomossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -160,9 +167,12 @@ public class MoomossEntity extends AnimalEntity implements GeoEntity {
             if (!this.getWorld().isClient && this.isShearable()) {
                 this.sheared(SoundCategory.PLAYERS);
                 this.emitGameEvent(GameEvent.SHEAR, player);
-                itemStack.damage(1, player, (playerx) -> {
+                //? if <1.21 {
+                /*itemStack.damage(1, player, (playerx) -> {
                     playerx.sendToolBreakStatus(hand);
-                });
+                });*/
+                //?} else
+                itemStack.damage(1, player, getSlotForHand(hand));
                 return ActionResult.SUCCESS;
             } else {
                 return ActionResult.CONSUME;
@@ -236,7 +246,8 @@ public class MoomossEntity extends AnimalEntity implements GeoEntity {
         this.dataTracker.set(FLOWERED, flowered);
     }
 
-    @Override
+    //? if <1.21 {
+    /*@Override
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(SHEARED, false);
@@ -244,7 +255,18 @@ public class MoomossEntity extends AnimalEntity implements GeoEntity {
         this.dataTracker.startTracking(FLOWERSTATE, Blocks.AIR.getDefaultState());
         this.dataTracker.startTracking(BLOSSOMING, false);
         this.dataTracker.startTracking(PINK, false);
+    }*/
+    //?} else
+    @Override
+    protected void initDataTracker(DataTracker.Builder builder) {
+        super.initDataTracker(builder);
+        builder.add(SHEARED, false);
+        builder.add(FLOWERED, false);
+        builder.add(FLOWERSTATE, Blocks.AIR.getDefaultState());
+        builder.add(BLOSSOMING, false);
+        builder.add(PINK, false);
     }
+
 
     public BlockState getFlowerState() {
         return this.dataTracker.get(FLOWERSTATE);
@@ -290,4 +312,11 @@ public class MoomossEntity extends AnimalEntity implements GeoEntity {
         this.setBlossoming(nbt.getBoolean("Blossoming"));
         this.setPink(nbt.getBoolean("Pink"));
     }
+
+    //? if >=1.21 {
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return false;
+    }
+
 }

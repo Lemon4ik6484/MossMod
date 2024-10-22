@@ -26,9 +26,15 @@ public class MoomossRenderer extends GeoEntityRenderer<MoomossEntity> {
     @Override
     public Identifier getTexture(MoomossEntity animatable) {
         if (animatable.isPink()) {
-            return new Identifier(Moomoss.MOD_ID, "textures/entity/moomoss_blossoming.png");
+            //? if <1.21 {
+            /*return new Identifier(Moomoss.MOD_ID, "textures/entity/moomoss_blossoming.png");*/
+            //?} else
+            return Identifier.of(Moomoss.MOD_ID, "textures/entity/moomoss_blossoming.png");
         }
-        return new Identifier(Moomoss.MOD_ID, "textures/entity/moomoss.png");
+        //? if <1.21 {
+        /*return new Identifier(Moomoss.MOD_ID, "textures/entity/moomoss");*/
+        //?} else
+        return Identifier.of(Moomoss.MOD_ID, "textures/entity/moomoss.png");
     }
 
     @Override

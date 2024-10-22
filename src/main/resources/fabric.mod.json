@@ -8,9 +8,9 @@
 		"Lemonnik6484"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/mosscraft",
-		"sources": "https://github.com/Lemon4ik6484/Moss",
-		"issues": "https://github.com/Lemon4ik6484/Moss/issues"
+		"homepage": "https://modrinth.com/mod/moomoss",
+		"sources": "https://github.com/Lemon4ik6484/MossMod",
+		"issues": "https://github.com/Lemon4ik6484/MossMod/issues"
 	},
 	"license": "AGPL-3.0",
 	"icon": "/assets/moss/icon.png",
